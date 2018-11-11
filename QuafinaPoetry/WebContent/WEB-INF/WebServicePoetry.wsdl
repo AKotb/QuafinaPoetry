@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetSea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Poet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSeaString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Poet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeaStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSeaStringResult" type="tns:ArrayOfAnalysisClass" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnalysisClass">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AnalysisClass" nillable="true" type="tns:AnalysisClass" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AnalysisClass">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Count" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Difference" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSeasFromEngine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Poet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSeasFromEngineResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRythms_ForPractice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RythmRequired" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRythms_ForPracticeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRythms_ForPracticeResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ArrayOfAnalysisClass" nillable="true" type="tns:ArrayOfAnalysisClass" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSeaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSea" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSeaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSeaString" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSeaStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeasFromEngineSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSeasFromEngine" />
+  </wsdl:message>
+  <wsdl:message name="GetSeasFromEngineSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSeasFromEngineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRythms_ForPracticeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRythms_ForPractice" />
+  </wsdl:message>
+  <wsdl:message name="GetRythms_ForPracticeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRythms_ForPracticeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaHttpGetIn">
+    <wsdl:part name="Poet" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaHttpGetOut" />
+  <wsdl:message name="GetSeaStringHttpGetIn">
+    <wsdl:part name="Poet" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnalysisClass" />
+  </wsdl:message>
+  <wsdl:message name="GetSeasFromEngineHttpGetIn">
+    <wsdl:part name="Poet" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSeasFromEngineHttpGetOut" />
+  <wsdl:message name="GetRythms_ForPracticeHttpGetIn">
+    <wsdl:part name="RythmRequired" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRythms_ForPracticeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaHttpPostIn">
+    <wsdl:part name="Poet" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaHttpPostOut" />
+  <wsdl:message name="GetSeaStringHttpPostIn">
+    <wsdl:part name="Poet" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSeaStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnalysisClass" />
+  </wsdl:message>
+  <wsdl:message name="GetSeasFromEngineHttpPostIn">
+    <wsdl:part name="Poet" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSeasFromEngineHttpPostOut" />
+  <wsdl:message name="GetRythms_ForPracticeHttpPostIn">
+    <wsdl:part name="RythmRequired" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRythms_ForPracticeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:portType name="WebServicePoetrySoap">
+    <wsdl:operation name="GetSea">
+      <wsdl:input message="tns:GetSeaSoapIn" />
+      <wsdl:output message="tns:GetSeaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeaString">
+      <wsdl:input message="tns:GetSeaStringSoapIn" />
+      <wsdl:output message="tns:GetSeaStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasFromEngine">
+      <wsdl:input message="tns:GetSeasFromEngineSoapIn" />
+      <wsdl:output message="tns:GetSeasFromEngineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRythms_ForPractice">
+      <wsdl:input message="tns:GetRythms_ForPracticeSoapIn" />
+      <wsdl:output message="tns:GetRythms_ForPracticeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServicePoetryHttpGet">
+    <wsdl:operation name="GetSea">
+      <wsdl:input message="tns:GetSeaHttpGetIn" />
+      <wsdl:output message="tns:GetSeaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeaString">
+      <wsdl:input message="tns:GetSeaStringHttpGetIn" />
+      <wsdl:output message="tns:GetSeaStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasFromEngine">
+      <wsdl:input message="tns:GetSeasFromEngineHttpGetIn" />
+      <wsdl:output message="tns:GetSeasFromEngineHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRythms_ForPractice">
+      <wsdl:input message="tns:GetRythms_ForPracticeHttpGetIn" />
+      <wsdl:output message="tns:GetRythms_ForPracticeHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServicePoetryHttpPost">
+    <wsdl:operation name="GetSea">
+      <wsdl:input message="tns:GetSeaHttpPostIn" />
+      <wsdl:output message="tns:GetSeaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeaString">
+      <wsdl:input message="tns:GetSeaStringHttpPostIn" />
+      <wsdl:output message="tns:GetSeaStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasFromEngine">
+      <wsdl:input message="tns:GetSeasFromEngineHttpPostIn" />
+      <wsdl:output message="tns:GetSeasFromEngineHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRythms_ForPractice">
+      <wsdl:input message="tns:GetRythms_ForPracticeHttpPostIn" />
+      <wsdl:output message="tns:GetRythms_ForPracticeHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServicePoetrySoap" type="tns:WebServicePoetrySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSea">
+      <soap:operation soapAction="http://tempuri.org/GetSea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeaString">
+      <soap:operation soapAction="http://tempuri.org/GetSeaString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasFromEngine">
+      <soap:operation soapAction="http://tempuri.org/GetSeasFromEngine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRythms_ForPractice">
+      <soap:operation soapAction="http://tempuri.org/GetRythms_ForPractice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicePoetrySoap12" type="tns:WebServicePoetrySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSea">
+      <soap12:operation soapAction="http://tempuri.org/GetSea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeaString">
+      <soap12:operation soapAction="http://tempuri.org/GetSeaString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasFromEngine">
+      <soap12:operation soapAction="http://tempuri.org/GetSeasFromEngine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRythms_ForPractice">
+      <soap12:operation soapAction="http://tempuri.org/GetRythms_ForPractice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicePoetryHttpGet" type="tns:WebServicePoetryHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetSea">
+      <http:operation location="/GetSea" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeaString">
+      <http:operation location="/GetSeaString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasFromEngine">
+      <http:operation location="/GetSeasFromEngine" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetRythms_ForPractice">
+      <http:operation location="/GetRythms_ForPractice" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicePoetryHttpPost" type="tns:WebServicePoetryHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetSea">
+      <http:operation location="/GetSea" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetSeaString">
+      <http:operation location="/GetSeaString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSeasFromEngine">
+      <http:operation location="/GetSeasFromEngine" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetRythms_ForPractice">
+      <http:operation location="/GetRythms_ForPractice" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServicePoetry">
+    <wsdl:port name="WebServicePoetrySoap" binding="tns:WebServicePoetrySoap">
+      <soap:address location="http://ibrahimhakem99-001-site6.gtempurl.com/WebServicePoetry.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicePoetrySoap12" binding="tns:WebServicePoetrySoap12">
+      <soap12:address location="http://ibrahimhakem99-001-site6.gtempurl.com/WebServicePoetry.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicePoetryHttpGet" binding="tns:WebServicePoetryHttpGet">
+      <http:address location="http://ibrahimhakem99-001-site6.gtempurl.com/WebServicePoetry.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicePoetryHttpPost" binding="tns:WebServicePoetryHttpPost">
+      <http:address location="http://ibrahimhakem99-001-site6.gtempurl.com/WebServicePoetry.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
